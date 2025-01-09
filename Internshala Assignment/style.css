@@ -1,0 +1,372 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Measurements and colors of website header and footer */
+header, footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    padding: 0;
+    background: #7f7d7d;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Content layout with Flexbox */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Left and right sidebars */
+.left, .right {
+    width: 200px;
+    background: #f4f4f4;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Main content area */
+.main {
+    flex: 1;
+    padding: 20px;
+    background-color: #fcfbfc;
+    background: linear-gradient(135deg, #fcfbfc 0%, #f2e2a4 100%);
+}
+
+/* Section styling */
+.section {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Portfolio Box Sizes and Colors */
+.portfolio-box {
+    border: 5px solid #d0ebeb;
+    background-color: #d0ebeb;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Portfolio Title Styles */
+.portfolio-title {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+}
+
+/* Video Container Styling */
+.video-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+/* Portfolio Image Grid using Flexbox */
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.portfolio img {
+    width: calc(33.333% - 10px);
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Booking Form Styling */
+.booking-form {
+    background: #f4b8d8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h2 {
+    margin-top: 0;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.booking-form input, .booking-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.booking-form input[type="submit"] {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Added Media Queries for Responsiveness */
+/* Mouli Aich  */
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .portfolio img {
+        width: calc(50% - 10px);
+    }
+}
+
+/* Small devices (mobile, max-width: 480px) */
+@media (max-width: 480px) {
+    .portfolio img {
+        width: 100%;
+    }
+
+    .nav ul {
+        padding: 10px;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Remove navigation styling for mobile */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Universal Box Model Adjustment */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Focus states for inputs */
+input:focus, textarea:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(51, 51, 51, 0.5);
+}
+
+/* Footer to always stay at the bottom */
+footer {
+    position: relative;
+    margin-top: auto;
+}
+
+/* Image scroll container at the top of portfolio section */
+.image-scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #f2e2a4;
+}
+
+.image-scroll-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.image-scroll-wrapper img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.image-scroll-wrapper:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Infinite scrolling effect */
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Apply continuous scrolling */
+.image-scroll-wrapper {
+    display: flex;
+    animation: infiniteScroll 30s linear infinite;
+}
+
+.image-scroll-wrapper img {
+    animation: infiniteScroll 30s linear infinite;
+}
+
+/* To ensure smooth looping of images */
+.image-scroll-wrapper img:last-child {
+    margin-right: 0;
+}
+/* Partner Models Section */
+.partner-models {
+    background-color: #d0ebeb;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.partner-models h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.models-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.model-box {
+    width: 250px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.model-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.model-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.instagram-link {
+    text-decoration: none;
+    color: #3b5998; /* Instagram color */
+    font-weight: bold;
+}
+
+.instagram-link:hover {
+    text-decoration: underline;
+}
+.facebook-link {
+    text-decoration: none;
+    color: #3b5998; /* Instagram color */
+    font-weight: bold;
+}
+.facebook-link:hover {
+    text-decoration: underline;
+}
+.partner-models {
+    background-color: #d0ebeb;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.partner-models h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.models-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.model-box {
+    width: 250px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.model-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.model-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.instagram-link {
+    text-decoration: none;
+    color: #3b5998; /* Instagram color */
+    font-weight: bold;
+}
+
+.instagram-link:hover {
+    text-decoration: underline;
+}
