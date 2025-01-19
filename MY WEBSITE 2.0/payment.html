@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Booking - Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #00bcd4, #00acc1);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .payment-container {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-container h2 {
+            font-size: 1.8rem;
+            color: #ff5722;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payment-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .payment-container select,
+        .payment-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .payment-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .payment-container button:hover {
+            background-color: #e64a19;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .terms {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .terms a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Photography Booking</h1>
+        <p>Secure your session with a 10% advance payment</p>
+    </header>
+
+    <div class="payment-container">
+        <h2>Select Your Package</h2>
+        <form action="javascript:void(0);" id="payment-form">
+            <label for="package-selection">Choose Your Budget Package</label>
+            <select id="package-selection" name="package" required>
+                <option value="20000">₹20,000 - Photography, Videography, Album, Pen Drive (Regular quality)</option>
+                <option value="30000">₹30,000 - Photography, Videography, Album, Pen Drive (Best quality)</option>
+                <option value="40000">₹40,000 - Photography, Videography, Album, Pen Drive, (Drone)</option>
+                <option value="50000">₹50,000 - Photography, Videography, Album, Pen Drive, (Drone,Both side)</option>
+                <option value="60000">₹60,000 - Photography, Videography, Album, Pen Drive, (Drone,Both side, Pree weeding)</option>
+                <option value="75000">₹75,000 - Photography, Videography, Album, Pen Drive, (Drone, Both, pree,extra cam)</option>
+                <option value="90000">₹90,000 - Photography, Videography, Album, Pen Drive, (Drone, Both, Pree, Cam, Lcd Panel)</option>
+                <option value="100000">₹100,000 - Photography, Videography, Album, Pen Drive, (Drone, Both, Pree, Cam, Giant screen)</option>
+            </select>
+
+            <label for="advance-payment">Advance Payment (10%)</label>
+            <input type="text" id="advance-payment" value="0" readonly disabled>
+
+            <label for="remaining-payment">Remaining Payment</label>
+            <input type="text" id="remaining-payment" value="0" readonly disabled>
+
+            <label for="customer-name">Your Name</label>
+            <input type="text" id="customer-name" placeholder="Enter your full name" required>
+
+            <label for="customer-email">Your Email</label>
+            <input type="email" id="customer-email" placeholder="Enter your email address" required>
+
+            <label for="primary-phone">Primary Mobile Number</label>
+            <input type="tel" id="primary-phone" placeholder="Enter your mobile number" required>
+
+            <label for="alternative-phone">Alternative Mobile Number</label>
+            <input type="tel" id="alternative-phone" placeholder="Enter an alternative mobile number">
+
+            <label for="esign">E-Signature (Your Name)</label>
+            <input type="text" id="esign" placeholder="Enter your full name" required>
+
+            <label for="event-start-date">Event Start Date</label>
+            <input type="date" id="event-start-date" required>
+
+            <label for="event-end-date">Event End Date</label>
+            <input type="date" id="event-end-date" required>
+
+            <label for="pre-wedding-date">Pre-Wedding Date (if applicable)</label>
+            <input type="date" id="pre-wedding-date">
+
+            <label for="address">Enter Your Location (India)</label>
+            <input type="text" id="address" placeholder="Enter your address" required>
+
+            <label>
+                <input type="checkbox" id="accept-terms" required> I accept the <a href="terms.html" target="_blank">terms and conditions</a>
+            </label>
+
+            <button type="submit" id="pay-button">Pay 10% Now</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Joker Creation Studio | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById('package-selection').addEventListener('change', function(e) {
+            var selectedPackage = parseInt(e.target.value);
+            var advance = selectedPackage * 0.1;
+            var remaining = selectedPackage - advance;
+
+            document.getElementById('advance-payment').value = advance;
+            document.getElementById('remaining-payment').value = remaining;
+        });
+
+        document.getElementById('payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var selectedPackage = parseInt(document.getElementById('package-selection').value);
+            var advance = selectedPackage * 0.1;
+            var remaining = selectedPackage - advance;
+
+            fetch('http://localhost:8080/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount: advance })
+            })
+            .then(response => response.json())
+            .then(data => {
+                var options = {
+                    key: "rzp_test_KvGSHThMuk24fs", // Razorpay key
+                    amount: advance * 100, 
+                    currency: "INR",
+                    name: "Joker Creation Studio",
+                    description: "Photography & Videography Service",
+                    image: "logo.jpg",
+                    order_id: data.id,
+                    handler: function(response) {
+                        alert("Payment Successful");
+
+                        fetch("http://localhost:8080/save-booking", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                customerName: document.getElementById('customer-name').value,
+                                customerEmail: document.getElementById('customer-email').value,
+                                customerPhone: document.getElementById('primary-phone').value,
+                                package: `₹${selectedPackage}`,
+                                bookingDates: `Event Dates: ${document.getElementById('event-start-date').value} to ${document.getElementById('event-end-date').value}`,
+                                preWeddingDate: document.getElementById('pre-wedding-date').value,
+                                address: document.getElementById('address').value,
+                                transactionId: response.razorpay_payment_id
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(message => {
+                            alert(message.message);  // Message will be displayed from backend
+                            window.location.href = 'account.html';  // Redirect to index.html page after clicking OK
+                        })
+                        .catch(error => {
+                            console.error('Error saving booking data:', error);
+                            alert('Failed to save booking details.');
+                        });
+                    },
+                    prefill: {
+                        name: document.getElementById('esign').value,
+                        email: document.getElementById('customer-email').value
+                    },
+                    theme: {
+                        color: "#ff5722"
+                    }
+                };
+
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            })
+            .catch(error => {
+                alert('Failed to create order');
+                console.error('Error:', error);
+            });
+        });
+    </script>
+
+</body>
+</html>

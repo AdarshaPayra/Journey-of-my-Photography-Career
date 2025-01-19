@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey of my photography Career</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Meta Tags -->
+    <meta name="Keywords" content="Photography, Journey of Adarsha Payra, My journey, Events">
+    <meta name="author" content="Adarsha Payra">
+
+    <style>
+        /* My Account & Log Out Button Styles */
+        #myAccountBtn, #logOutBtn {
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #myAccountBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #myAccountBtn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        #logOutBtn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #logOutBtn:hover {
+            background-color: #e53935;
+            transform: scale(1.05);
+        }
+
+        /* Profile Initials Styles */
+        #profileInitials {
+            display: none;
+            background-color: #607d8b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        /* Rest of your styles... */
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Journey of my photography Career</h1>
+        <p><em>by- Adarsha Payra</em></p>
+        <div style="font-style: italic">
+            <p>"Make You Perfect"</p>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul style="list-style: square;color: #ffff00; display: flex; padding-left: 0; margin: 0; width: 100%; align-items: center; justify-content: space-between;">
+            <!-- Main Navigation Links (centered) -->
+            <div style="display: flex; justify-content: center; flex-grow: 1; gap: 20px; margin-right: 10px;">
+                <li><a href="#About_me">About me</a></li>
+                <li><a href="#Portfolio-img">Image Portfolio</a></li>
+                <li><a href="#Video Portfolio">Video Portfolio</a></li>
+                <li><a href="#Contact me">Contact me</a></li>
+                <li><a href="#Book Me">Book Me</a></li>
+            </div>
+
+            <!-- User Account & Log Out Section (Right side) -->
+            <div id="userNav" style="display: flex; justify-content: flex-end; align-items: center;">
+                <!-- My Account Button -->
+                <button id="myAccountBtn" onclick="location.href='accountdetails.html'" style="display:none;">My Account</button>
+                
+                <!-- Log Out Button -->
+                <button id="logOutBtn" onclick="logOut()" style="display:none;">Log Out</button>
+
+                <!-- Profile Initials (hidden initially) -->
+                <div id="profileInitials"></div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content" style="background: rgb(247, 246, 246);">
+        <div class="image-scroll-container">
+            <div class="image-scroll-wrapper">
+                <img src="1.jpg" alt="Image 1">
+                <img src="2.jpg" alt="Image 2">
+                <img src="3.jpg" alt="Image 3">
+                <img src="4.jpg" alt="Image 4">
+                <img src="6.jpg" alt="Image 6">
+                <img src="7.jpg" alt="Image 7">
+                <img src="8.jpg" alt="Image 8">
+                <img src="9.jpg" alt="Image 9">
+                <img src="10.jpg" alt="Image 10">
+                <img src="11.jpg" alt="Image 11">
+                <img src="12.jpg" alt="Image 12">
+                <img src="13.jpg" alt="Image 13">
+                <img src="14.jpg" alt="Image 14">
+                <img src="15.jpg" alt="Image 15">
+                <img src="16.jpg" alt="Image 16">
+            </div>
+        </div>
+        <div class="left" style="background: #f2e2a4;">
+            <h3>#Google Adds Here</h3>
+        </div>
+        <div class="main">
+            <div id="Portfolio-img" class="section Portfolio-img">
+                <div class="portfolio-box">
+                    <div class="portfolio-title">My photography portfolio</div>
+                    <div class="portfolio">
+                        <!-- Portfolio Images -->
+                        <img src="1.jpg" alt="Radha Photoshoot image 1">
+                        <img src="2.jpg" alt="Radha Photoshoot image 2">
+                        <img src="3.jpg" alt="Radha Photoshoot image 3">
+                        <img src="4.jpg" alt="Radha Photoshoot image 4">
+                        <img src="6.jpg" alt="Baby photoshoot image 1">
+                        <img src="7.jpg" alt="Sita photoshoot photo 1">
+                        <img src="8.jpg" alt="Couple photoshoot image 1">
+                        <img src="9.jpg" alt="Radha photoshoot image 5">
+                        <img src="10.jpg" alt="Model photoshoot image 1">
+                        <img src="11.jpg" alt="Model photoshoot image 2">
+                        <img src="12.jpg" alt="Model photoshoot image 3">
+                        <img src="13.jpg" alt="Model photoshoot image 4">
+                        <img src="14.jpg" alt="Model photoshoot image 5">
+                        <img src="15.jpg" alt="Model photoshoot image 6">
+                        <img src="16.jpg" alt="Model photoshoot image 6">
+                    </div>
+                </div>
+            </div>
+            <!-- Video Portfolio -->
+            <div id="Video Portfolio" class="section Video Portfolio">
+                <div class="portfolio-box">
+                    <div class="portfolio-title">My Videography Portfolio</div>
+                    <div class="video-container">
+                        <video width="100%" controls>
+                            <source src="1.mp4" type="video/mp4">Ram Siya Ram Song Video
+                        </video>
+                        <video width="100%" controls>
+                            <source src="2.mp4" type="video/mp4">Radha music video
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right" style="background: #f2e2a4;">
+            <div id="Book Me" class="booking-form">
+                <h2>Access My Services</h2>
+                <p>If you want to access my photography services, please choose an option below.</p>
+                <button onclick="location.href='payment.html'" style="width: 100%; padding: 10px; margin: 5px 0;">Pay Now</button>
+            </div>
+            <br>
+            <h3>#Google Adds Here</h3>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div id="About_me" class="section">
+            <h2>About me</h2>
+            <p>My name is Adarsha Payra. I am a passionate photographer specializing in capturing moments that tell a story. With 5 years of experience, I've worked across diverse genres, including portraits, landscapes, events, and more.</p>
+        </div>
+        <div id="Contact me" class="section">
+            <h2>Contact me</h2>
+            <p>If you want to contact with me, please fill out the form below</p>
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <br><br>
+                <label for="mobile">Mobile number</label>
+                <input type="tell" id="mobile" name="mobile" required>
+                <br><br>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+                <input type="submit" value="Submit">
+                <br><br>
+                <h2>Other ways to connect</h2>
+                <p>Here are some other ways to contacting with me</p>
+                <a href="https://www.instagram.com/adarshapayra/" target="_blank" >Follow me on Instagram</a>
+                <a href="https://www.facebook.com/adarsha.payra" target="_blank">Follow me on Facebook</a>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        // Handle contact form submission and send data to backend
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value;
+
+            const formData = {
+                name: name,
+                mobile: mobile,
+                email: email,
+            };
+
+            // Send data to backend (your server handling email)
+            fetch('http://localhost:8080/contact-submit', {  // Ensure this endpoint is correct and matches your backend URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your message has been sent successfully!');
+            })
+            .catch(error => {
+                alert('Failed to send message. Please try again.');
+                console.error('Error:', error);
+            });
+        });
+
+        // Check login status and show My Account and Log Out buttons
+        window.onload = function() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                document.getElementById('myAccountBtn').style.display = 'inline-block';  // Show My Account button
+                document.getElementById('logOutBtn').style.display = 'inline-block';     // Show Log Out button
+
+                // Fetch user info and show profile initials
+                fetchUserProfile();
+
+                // Show welcome message
+                showWelcomeMessage();
+            } else {
+                document.getElementById('myAccountBtn').style.display = 'none';   // Hide My Account button
+                document.getElementById('logOutBtn').style.display = 'none';      // Hide Log Out button
+                document.getElementById('profileInitials').style.display = 'none'; // Hide profile initials
+            }
+        };
+
+        // Function to fetch user profile (name and show initials)
+        function fetchUserProfile() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                fetch('http://127.0.0.1:5000/api/account', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const userName = data.name;
+                    const initials = userName.split(' ').map(word => word[0].toUpperCase()).join('');
+                    document.getElementById('profileInitials').textContent = initials;
+                    document.getElementById('profileInitials').style.display = 'inline-block'; // Show profile initials
+                })
+                .catch(error => console.log('Error fetching user profile:', error));
+            }
+        }
+
+        // Function to log out
+        function logOut() {
+            localStorage.removeItem('authToken'); // Remove token from local storage
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+
+        // Show welcome message with user's name
+        function showWelcomeMessage() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                fetch('http://127.0.0.1:5000/api/account', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const userName = data.name;
+                    alert(`Welcome, ${userName}! Book our service for your special date!`);
+                })
+                .catch(error => console.log('Error fetching user profile for welcome message:', error));
+            }
+        }
+    </script>
+</body>
+</html>
